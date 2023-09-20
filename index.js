@@ -25,25 +25,25 @@ async function updateMapData() {
 		// add image based on current map
 		if (mapData === "Kings Canyon") {
 			const image = document.createElement("img");
-			image.src = "../images/kings-canyon.jpg"; // Replace with the actual image URL
+			image.src = "images/kings-canyon.jpg"; // Replace with the actual image URL
 			image.alt = "Kings Canyon";
 			element.appendChild(image);
 		} else if (mapData === "World's Edge") {
 			const image = document.createElement("img");
-			image.src = "../images/worlds-edge.jpg"; // Replace with the actual image URL
+			image.src = "images/worlds-edge.jpg"; // Replace with the actual image URL
 			image.alt = "World's Edge";
 			element.appendChild(image);
 		} else if (mapData === "Olympus") {
 			const image = document.createElement("img");
-			image.src = "../images/olympus.png"; // Replace with the actual image URL
+			image.src = "images/olympus.png"; // Replace with the actual image URL
 			image.alt = "Olympus";
 			element.appendChild(image);
 		} else if (mapData === "Broken Moon") {
 			const image = document.createElement("img");
-			image.src = "../images/broken-moon.jpg"; // Replace with the actual image URL
+			image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
 			image.alt = "Broken Moon";
 			element.appendChild(image);
-		} 
+		}
 	} catch (error) {
 		// Handle the error
 		console.error("Error updating map data:", error);
