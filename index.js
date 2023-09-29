@@ -8,7 +8,10 @@ async function getMapData() {
 		const mapData = await response.json();
 		console.log(mapData);
 		return mapData.current.map;
-		
+
+		// const changeTime = await response.json();
+		// console.log(changeTime);
+		// return changeTime;
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
@@ -32,11 +35,12 @@ async function getNextMapData() {
 async function updateMapData() {
 	try {
 		const mapData = await getMapData();
-		const para = document.createElement("h3");
+		const para = document.createElement("h1");
 		const node = document.createTextNode(mapData);
 		para.appendChild(node);
 		const element = document.getElementById("current-map");
-		element.appendChild(para);
+		const headerElement = document.getElementById("current-map-header");
+		headerElement.appendChild(para);
 
 		// add image based on current map
 		if (mapData === "Kings Canyon") {
@@ -69,17 +73,15 @@ async function updateMapData() {
 // Call updateMapData to fetch and update the map data in the DOM
 updateMapData();
 
-
-
-
 async function updateNextMapData() {
 	try {
 		const nextMapData = await getNextMapData();
-		const para = document.createElement("h3");
+		const para = document.createElement("h1");
 		const node = document.createTextNode(nextMapData);
 		para.appendChild(node);
 		const element = document.getElementById("next-map");
-		element.appendChild(para);
+		const nextHeaderElement = document.getElementById("next-map-header");
+		nextHeaderElement.appendChild(para);
 
 		// add image based on current map
 		if (nextMapData === "Kings Canyon") {

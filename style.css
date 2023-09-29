@@ -1,15 +1,65 @@
-#current-map{
-    text-align: center;
+* {
+	/* border: 1px black solid; */
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-#current-map img{
-    width: 90vw;
+body {
+	background-color: #eae7e7;
+	font-family: "Teko", sans-serif;
 }
 
-#next-map{
-    text-align: center;
+.map-header {
+	text-align: center;
+	margin-bottom: 10vh;
 }
 
-#next-map img{
-    width: 90vw;
+#current-map-header {
+	display: flex;
+	justify-content: space-between;
+	width: 60vw;
+	margin: auto;
+	align-self: center;
+}
+
+#current-map {
+	text-align: center;
+}
+
+#current-map img {
+	width: 60vw;
+	margin-bottom: 10vh;
+	filter: drop-shadow(5px 8px 10px);
+}
+
+#next-map-header {
+	display: flex;
+	justify-content: space-between;
+	width: 60vw;
+	margin: auto;
+	align-self: center;
+}
+
+#next-map {
+	text-align: center;
+}
+
+#next-map img {
+	width: 60vw;
+	margin-bottom: 10vh;
+}
+
+footer {
+	text-align: center;
+}
+
+@media (max-width: 768px) {
+	#current-map img {
+		width: 85vw;
+	}
+
+	#next-map img {
+		width: 85vw;
+	}
 }

@@ -1,3 +1,49 @@
-.legend-image{
-    width: 30vw;;
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #eae7e7;
+}
+
+.generator-title-container {
+	text-align: center;
+	font-family: "Teko", sans-serif;
+}
+
+.generator-title-container button {
+	width: 100px;
+	height: 35px;
+	background-color: #5e0000;
+	color: #eae7e7;
+	cursor: pointer;
+	font-family: "Teko", sans-serif;
+	font-weight: 300;
+	font-size: 1.6em;
+}
+.generator-title-container button:hover {
+	background-color: #eae7e7;
+	color: #5e0000;
+}
+
+.legend-image {
+	width: 30vw;
+}
+
+#legend-list-name {
+	display: flex;
+	justify-content: space-around;
+	font-size: 20px;
+	font-family: "Teko", sans-serif;
+}
+
+#legend-list-image {
+	display: flex;
+	justify-content: space-between;
+}
+
+footer {
+	text-align: center;
 }

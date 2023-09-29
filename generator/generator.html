@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="generator.css">
-    </head>
-    <body>
-        <nav>
-            <a href="../index.html">Home</a>
-        </nav>
-        <main id="generator-container">
-            <h1>Random Legend Generator</h1>
-            <button id="button">Generate</button>
-        </main>
-        
-        <script src="generator.js" type="module" async defer></script>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="generator.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<nav>
+			<a href="../index.html">Home</a>
+		</nav>
+		<main id="generator-container">
+			<div class="generator-title-container">
+				<h1>Random Legend Generator</h1>
+				<button id="button">Generate</button>
+			</div>
+			<section id="legend-list-image"></section>
+			<section id="legend-list-name"></section>
+		</main>
+		<footer>
+			<p>
+				Created by
+				<a href="https://www.linkedin.com/in/bailey-pointer" target="_blank"
+					>Bailey Pointer</a
+				>
+			</p>
+			<p>
+				Data provided by
+				<a href="https://apexlegendsapi.com/" target="_blank"
+					>Apex Legends Status</a
+				>
+			</p>
+		</footer>
+		<script src="generator.js" type="module" async defer></script>
+	</body>
 </html>
