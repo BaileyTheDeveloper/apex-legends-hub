@@ -10,6 +10,46 @@ body {
 	font-family: "Teko", sans-serif;
 }
 
+.nav-bar-container {
+	background-color: #5e0000;
+	height: auto;
+}
+.nav-bar {
+	width: 20vw;
+	margin-left: auto;
+	display: flex;
+	list-style-type: none;
+	color: #eae7e7;
+}
+
+.nav-bar a {
+	text-decoration: none;
+	color: #eae7e7;
+	font-size: 1.2rem;
+	font-weight: 400;
+	padding-top: 1.2rem;
+	padding-bottom: 0.6rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.nav-bar a:visited {
+	color: #eae7e7;
+}
+
+.nav-bar a:hover {
+	color: #5e0000;
+	background-color: #eae7e7;
+}
+.nav-bar li {
+	height: 3rem;
+	padding-top: 0.75rem;
+	color: #eae7e7;
+}
+
+.nav-bar li:visited {
+	color: #eae7e7;
+}
+
 .map-header {
 	text-align: center;
 	margin-bottom: 10vh;

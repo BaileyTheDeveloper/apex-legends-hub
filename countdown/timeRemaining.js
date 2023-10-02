@@ -5,24 +5,29 @@ async function getChangeTime() {
 		);
 		const changeTime = await response.json();
 		console.log(changeTime);
-		console.log(changeTime.current.readableDate_end);
-		return changeTime.current.readableDate_end;
+
+		const endTime = await changeTime.current.readableDate_end;
+		console.log(endTime);
+
+		const endTimeUTC = new Date(endTime);
+		const localEndTime = endTimeUTC.toLocaleTimeString();
+		console.log(localEndTime);
+		return localEndTime;
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
 	}
 }
 
-function countdown() {
-	let now = new Date().toJSON().slice(11, 19);
-	console.log(now);
+function updateEndTime(getChangeTime) {
+	const endTimeFinal = getChangeTime;
+	const node = document.createTextNode(endTimeFinal);
+	const header = document.getElementById("current-map-header");
+	header.appendChild(para);
+	para.appendChild(node);
 }
 
 getChangeTime();
-countdown();
+updateEndTime(getChangeTime);
 
-// separate date and time and then put together
-// see if end date is === now date
-// if yes, find difference
-// if no find difference between now and midnight +
-// difference between midnight and end date
+export default timeRemaining.js;
