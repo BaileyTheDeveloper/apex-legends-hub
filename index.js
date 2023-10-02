@@ -73,42 +73,42 @@ async function updateMapData() {
 // Call updateMapData to fetch and update the map data in the DOM
 updateMapData();
 
-async function updateNextMapData() {
-	try {
-		const nextMapData = await getNextMapData();
-		const para = document.createElement("h1");
-		const node = document.createTextNode(nextMapData);
-		para.appendChild(node);
-		const element = document.getElementById("next-map");
-		const nextHeaderElement = document.getElementById("next-map-header");
-		nextHeaderElement.appendChild(para);
+// async function updateNextMapData() {
+// 	try {
+// 		const nextMapData = await getNextMapData();
+// 		const para = document.createElement("h1");
+// 		const node = document.createTextNode(nextMapData);
+// 		para.appendChild(node);
+// 		const element = document.getElementById("next-map");
+// 		const nextHeaderElement = document.getElementById("next-map-header");
+// 		nextHeaderElement.appendChild(para);
 
-		// add image based on current map
-		if (nextMapData === "Kings Canyon") {
-			const image = document.createElement("img");
-			image.src = "images/kings-canyon.jpg"; // Replace with the actual image URL
-			image.alt = "Kings Canyon";
-			element.appendChild(image);
-		} else if (nextMapData === "World's Edge") {
-			const image = document.createElement("img");
-			image.src = "images/worlds-edge.jpg"; // Replace with the actual image URL
-			image.alt = "World's Edge";
-			element.appendChild(image);
-		} else if (nextMapData === "Olympus") {
-			const image = document.createElement("img");
-			image.src = "images/olympus.png"; // Replace with the actual image URL
-			image.alt = "Olympus";
-			element.appendChild(image);
-		} else if (nextMapData === "Broken Moon") {
-			const image = document.createElement("img");
-			image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
-			image.alt = "Broken Moon";
-			element.appendChild(image);
-		}
-	} catch (error) {
-		// Handle the error
-		console.error("Error updating map data:", error);
-	}
-}
+// 		// add image based on current map
+// 		if (nextMapData === "Kings Canyon") {
+// 			const image = document.createElement("img");
+// 			image.src = "images/kings-canyon.jpg"; // Replace with the actual image URL
+// 			image.alt = "Kings Canyon";
+// 			element.appendChild(image);
+// 		} else if (nextMapData === "World's Edge") {
+// 			const image = document.createElement("img");
+// 			image.src = "images/worlds-edge.jpg"; // Replace with the actual image URL
+// 			image.alt = "World's Edge";
+// 			element.appendChild(image);
+// 		} else if (nextMapData === "Olympus") {
+// 			const image = document.createElement("img");
+// 			image.src = "images/olympus.png"; // Replace with the actual image URL
+// 			image.alt = "Olympus";
+// 			element.appendChild(image);
+// 		} else if (nextMapData === "Broken Moon") {
+// 			const image = document.createElement("img");
+// 			image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
+// 			image.alt = "Broken Moon";
+// 			element.appendChild(image);
+// 		}
+// 	} catch (error) {
+// 		// Handle the error
+// 		console.error("Error updating map data:", error);
+// 	}
+// }
 
-updateNextMapData();
+// updateNextMapData();

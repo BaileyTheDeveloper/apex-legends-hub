@@ -4,30 +4,32 @@ async function getChangeTime() {
 			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
 		);
 		const changeTime = await response.json();
-		console.log(changeTime);
-
-		const endTime = await changeTime.current.readableDate_end;
-		console.log(endTime);
-
-		const endTimeUTC = new Date(endTime);
-		const localEndTime = endTimeUTC.toLocaleTimeString();
-		console.log(localEndTime);
-		return localEndTime;
+		const endTime = changeTime.current.readableDate_end;
+		const endTimeFinal = endTime.slice(10, 16);
+		console.log(endTimeFinal);
+		return endTimeFinal;
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
 	}
 }
 
-function updateEndTime(getChangeTime) {
-	const endTimeFinal = getChangeTime;
-	const node = document.createTextNode(endTimeFinal);
-	const header = document.getElementById("current-map-header");
-	header.appendChild(para);
-	para.appendChild(node);
+async function updateEndTime(getChangeTime) {
+	try {
+		const currentMap = document.querySelector("#current-map-header");
+		const parag = document.createElement("p");
+		parag.textContent = await getChangeTime();
+		currentMap.appendChild(parag);
+	} catch (error) {
+		console.log("Error fetching time data:", error);
+		throw error;
+	}
 }
 
-getChangeTime();
-updateEndTime(getChangeTime);
+// Wait for 2.5 seconds before calling the functions
+setTimeout(async () => {
+	await getChangeTime();
+	await updateEndTime(getChangeTime);
+}, 2500);
 
-export default timeRemaining.js;
+export default updateEndTime;
