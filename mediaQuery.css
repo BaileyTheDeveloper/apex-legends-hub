@@ -37,6 +37,7 @@
 		background-color: #5e0000;
 		transition: 0.4s;
 		font-family: "Teko", sans-serif;
+		padding-top: 15%;
 	}
 
 	.nav-mobile.is-active {
@@ -68,7 +69,7 @@
 	}
 
 	.hamburger {
-		position: relative;
+		position: fixed;
 		left: 85vw;
 		top: 20px;
 		width: 35px;
@@ -113,12 +114,42 @@
 	.nav-bar-container {
 		height: 9%;
 	}
+.map-header{
+    margin-top: 5vh;
+}
 
-    #generator-container{
-        padding-top: 10%;
-    }
+#generator-container{
+    margin-top: 5vh;
+}
 
-    #button{
-        margin-bottom: 15%;
-    }
+	#current-map-header {
+		width: 90%;
+	}
+	#next-map-header {
+		width: 90%;
+	}
+
+	#generator-container {
+		padding-top: 10%;
+	}
+
+	#button {
+		margin-bottom: 15%;
+	}
+
+    #current-map img {
+		width: 85vw;
+	}
+
+	#next-map img {
+		width: 85vw;
+	}
+
+	#apex-h1 {
+		display: none;
+	}
+
+	#hub-h1 {
+		display: none;
+	}
 }
