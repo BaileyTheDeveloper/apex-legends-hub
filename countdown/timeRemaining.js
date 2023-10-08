@@ -5,9 +5,8 @@ async function getChangeTime() {
 		);
 		const changeTime = await response.json();
 		const endTime = changeTime.current.readableDate_end;
-		const endTimeFinal = endTime.slice(10, 16);
-		console.log(endTimeFinal);
-		return endTimeFinal;
+
+		// convert to local timezone somehow
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
@@ -27,9 +26,9 @@ async function updateEndTime(getChangeTime) {
 }
 
 // Wait for 2.5 seconds before calling the functions
-setTimeout(async () => {
-	await getChangeTime();
-	await updateEndTime(getChangeTime);
-}, 2500);
+// setTimeout(async () => {
+// 	await getChangeTime();
+// 	await updateEndTime(getChangeTime);
+// }, 1500);
 
 export default updateEndTime;

@@ -13,6 +13,12 @@ body {
 .nav-bar-container {
 	background-color: #5e0000;
 	height: auto;
+	display: flex;
+	position: fixed;
+	top: 0; 
+	width: 100%;
+	overflow: hidden;
+	z-index: 1;
 }
 .nav-bar {
 	width: 20vw;
@@ -44,15 +50,32 @@ body {
 	height: 3rem;
 	padding-top: 0.75rem;
 	color: #eae7e7;
+	margin-top: 20px;
 }
 
 .nav-bar li:visited {
 	color: #eae7e7;
 }
 
+.main-header {
+	display: flex;
+	font-size: 32px;
+	color: white;
+	justify-content: center;
+	margin-left: 43vw;
+}
+#icon {
+	width: 1.5em;
+	height: 1.5em;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 8px;
+}
+
 .map-header {
 	text-align: center;
-	margin-bottom: 10vh;
+	margin-bottom: 5vh;
+	padding-top: 14vh;
 }
 
 #current-map-header {
@@ -92,14 +115,19 @@ body {
 
 footer {
 	text-align: center;
+	background-color: #5e0000;
+	color: white;
+	padding: 25px 0 15px 0;
+	font-size: 16px;
 }
 
-@media (max-width: 768px) {
-	#current-map img {
-		width: 85vw;
-	}
+footer a {
+	color: #eae7e7;
+}
+footer a:visited {
+	color: #eae7e7;
+}
 
-	#next-map img {
-		width: 85vw;
-	}
+.nav-mobile {
+	display: none;
 }

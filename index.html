@@ -8,6 +8,7 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="mediaQuery.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -17,23 +18,37 @@
 	</head>
 	<body>
 		<nav class="nav-bar-container">
+			<div class="main-header">
+				<h1 id="apex-h1">Apex</h1>
+				<img class="apex-icon" src="./images/apex-icon.png" alt="Apex icon" id="icon" />
+				<h1 id="hub-h1">Hub</h1>
+			</div>
 			<ul class="nav-bar">
 				<li><a href="./index.html">Map Rotation</a></li>
 				<li><a href="./generator/generator.html">Legend Generator</a></li>
 				<li><a href="#">About</a></li>
 			</ul>
-			
 		</nav>
+		<button class="hamburger">
+				<div class="bar"></div>
+			</button>
+			<nav class="nav-mobile">
+				<ul>
+					<li><a href="#">Map Tracker</a></li>
+					<li><a href="#">Random Legend Generator</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				</nav>
 		<div class="map-header">
-			<h1>Apex Map Tracker</h1>
+			<h1>Map Tracker</h1>
 		</div>
 		<div id="current-map-header">
-			<h2>Current Map ></h2>
+			<h1>Current Map ></h1>
 		</div>
 		<section id="current-map"></section>
 
 		<div id="next-map-header">
-			<h2>Up Next ></h2>
+			<h1>Up Next ></h1>
 		</div>
 		<section id="next-map"></section>
 
@@ -52,6 +67,11 @@
 			</p>
 		</footer>
 		<script src="index.js" type="module" async defer></script>
-		<script src="./countdown/timeRemaining.js" type="module" async defer></script>
+		<script
+			src="./countdown/timeRemaining.js"
+			type="module"
+			async
+			defer
+		></script>
 	</body>
 </html>
