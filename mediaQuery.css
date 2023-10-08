@@ -113,4 +113,12 @@
 	.nav-bar-container {
 		height: 9%;
 	}
+
+    #generator-container{
+        padding-top: 10%;
+    }
+
+    #button{
+        margin-bottom: 15%;
+    }
 }
