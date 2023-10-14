@@ -5,38 +5,37 @@ async function getMapData() {
 		const response = await fetch(
 			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
 		);
-		const mapData = await response.json();
+		const map = await response.json();
+		const mapData = map.current.map;
+
+		// 1. Parse the UTC date string
+		const date = new Date(map.current.end * 1000);
+
+		// 2. Get the user's local timezone using 'userTZ'
+		const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+		// 3. Convert the Unix timestamp to the user's local timezone
+		const localDate = date.toLocaleString("en-US", {
+			timeZone: userTZ,
+			hour: "numeric",
+			minute: "numeric",
+		});
+		console.log("Local Date:", localDate);
+
+		const until = `Until ${localDate}`;
+
 		console.log(mapData);
-		return mapData.current.map;
-	} catch (error) {
-		console.log("Error fetching map data:", error);
-		throw error;
-	}
-}
-
-async function getNextMapData() {
-	try {
-		const response = await fetch(
-			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
-		);
-		const nextMapData = await response.json();
-		console.log(nextMapData);
-		return nextMapData.next.map;
-	} catch (error) {
-		console.log("Error fetching map data:", error);
-		throw error;
-	}
-}
-
-async function updateMapData() {
-	try {
-		const mapData = await getMapData();
 		const para = document.createElement("h1");
+		const paraUntil = document.createElement("h1");
 		const node = document.createTextNode(mapData);
+		const nodeTwo = document.createTextNode(until);
+		paraUntil.appendChild(nodeTwo);
 		para.appendChild(node);
 		const element = document.getElementById("current-map");
 		const headerElement = document.getElementById("current-map-header");
+		const untilElement = document.getElementById("current-map-header");
 		headerElement.appendChild(para);
+		untilElement.appendChild(paraUntil);
 
 		// add image based on current map
 		if (mapData === "Kings Canyon") {
@@ -61,13 +60,24 @@ async function updateMapData() {
 			element.appendChild(image);
 		}
 	} catch (error) {
-		// Handle the error
-		console.error("Error updating map data:", error);
+		console.log("Error fetching map data:", error);
+		throw error;
 	}
 }
-
-// Call updateMapData to fetch and update the map data in the DOM
-updateMapData();
+getMapData();
+async function getNextMapData() {
+	try {
+		const response = await fetch(
+			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
+		);
+		const nextMapData = await response.json();
+		console.log(nextMapData);
+		return nextMapData.next.map;
+	} catch (error) {
+		console.log("Error fetching map data:", error);
+		throw error;
+	}
+}
 
 async function updateNextMapData() {
 	try {

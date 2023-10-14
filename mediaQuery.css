@@ -114,13 +114,13 @@
 	.nav-bar-container {
 		height: 9%;
 	}
-.map-header{
-    margin-top: 5vh;
-}
+	.map-header {
+		margin-top: 5vh;
+	}
 
-#generator-container{
-    margin-top: 5vh;
-}
+	#generator-container {
+		margin-top: 5vh;
+	}
 
 	#current-map-header {
 		width: 90%;
@@ -137,7 +137,7 @@
 		margin-bottom: 15%;
 	}
 
-    #current-map img {
+	#current-map img {
 		width: 85vw;
 	}
 
