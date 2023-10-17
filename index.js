@@ -70,24 +70,36 @@ async function getNextMapData() {
 		const response = await fetch(
 			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
 		);
-		const nextMapData = await response.json();
+		const nextMap = await response.json();
+		const nextMapData = nextMap.next.map
 		console.log(nextMapData);
-		return nextMapData.next.map;
-	} catch (error) {
-		console.log("Error fetching map data:", error);
-		throw error;
-	}
-}
+		// 1. Parse the UTC date string
+		const date = new Date(nextMap.next.end * 1000);
+		// 2. Get the user's local timezone using 'userTZ'
+		const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-async function updateNextMapData() {
-	try {
-		const nextMapData = await getNextMapData();
+		// 3. Convert the Unix timestamp to the user's local timezone
+		const localDate = date.toLocaleString("en-US", {
+			timeZone: userTZ,
+			hour: "numeric",
+			minute: "numeric",
+		});
+		console.log("Local Date:", localDate);
+
+		const nextUntil = `Until ${localDate}`;
+		
 		const para = document.createElement("h1");
+		const paraNextUntil = document.createElement("h1");
 		const node = document.createTextNode(nextMapData);
+		const nodeNext = document.createTextNode(nextUntil);
+		paraNextUntil.appendChild(nodeNext);
 		para.appendChild(node);
 		const element = document.getElementById("next-map");
 		const nextHeaderElement = document.getElementById("next-map-header");
+		const untilNextElement = document.getElementById("next-map-header");
 		nextHeaderElement.appendChild(para);
+		untilNextElement.appendChild(paraNextUntil);
+
 
 		// add image based on current map
 		if (nextMapData === "Kings Canyon") {
@@ -111,13 +123,52 @@ async function updateNextMapData() {
 			image.alt = "Broken Moon";
 			element.appendChild(image);
 		}
+
+	} catch (error) {
+		console.log("Error fetching map data:", error);
+		throw error;
+	}
+}
+
+async function updateNextMapData() {
+	try {
+		// const nextMapData = await getNextMapData();
+		// const para = document.createElement("h1");
+		// const node = document.createTextNode(nextMapData);
+		// para.appendChild(node);
+		// const element = document.getElementById("next-map");
+		// const nextHeaderElement = document.getElementById("next-map-header");
+		// nextHeaderElement.appendChild(para);
+
+		// // add image based on current map
+		// if (nextMapData === "Kings Canyon") {
+		// 	const image = document.createElement("img");
+		// 	image.src = "images/kings-canyon.jpg"; // Replace with the actual image URL
+		// 	image.alt = "Kings Canyon";
+		// 	element.appendChild(image);
+		// } else if (nextMapData === "World's Edge") {
+		// 	const image = document.createElement("img");
+		// 	image.src = "images/worlds-edge.jpg"; // Replace with the actual image URL
+		// 	image.alt = "World's Edge";
+		// 	element.appendChild(image);
+		// } else if (nextMapData === "Olympus") {
+		// 	const image = document.createElement("img");
+		// 	image.src = "images/olympus.png"; // Replace with the actual image URL
+		// 	image.alt = "Olympus";
+		// 	element.appendChild(image);
+		// } else if (nextMapData === "Broken Moon") {
+		// 	const image = document.createElement("img");
+		// 	image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
+		// 	image.alt = "Broken Moon";
+		// 	element.appendChild(image);
+		// }
 	} catch (error) {
 		// Handle the error
 		console.error("Error updating map data:", error);
 	}
 }
 
-updateNextMapData();
+getNextMapData();
 
 // hamburger menu
 const menu_btn = document.querySelector(".hamburger");
