@@ -58,6 +58,11 @@ async function getMapData() {
 			image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
 			image.alt = "Broken Moon";
 			element.appendChild(image);
+		} else if (mapData === "Storm Point") {
+			const image = document.createElement("img");
+			image.src = "images/stormpoint.png"; // Replace with the actual image URL
+			image.alt = "Storm Point";
+			element.appendChild(image);
 		}
 	} catch (error) {
 		console.log("Error fetching map data:", error);
@@ -71,7 +76,7 @@ async function getNextMapData() {
 			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
 		);
 		const nextMap = await response.json();
-		const nextMapData = nextMap.next.map
+		const nextMapData = nextMap.next.map;
 		console.log(nextMapData);
 		// 1. Parse the UTC date string
 		const date = new Date(nextMap.next.end * 1000);
@@ -87,7 +92,7 @@ async function getNextMapData() {
 		console.log("Local Date:", localDate);
 
 		const nextUntil = `Until ${localDate}`;
-		
+
 		const para = document.createElement("h1");
 		const paraNextUntil = document.createElement("h1");
 		const node = document.createTextNode(nextMapData);
@@ -99,7 +104,6 @@ async function getNextMapData() {
 		const untilNextElement = document.getElementById("next-map-header");
 		nextHeaderElement.appendChild(para);
 		untilNextElement.appendChild(paraNextUntil);
-
 
 		// add image based on current map
 		if (nextMapData === "Kings Canyon") {
@@ -122,8 +126,12 @@ async function getNextMapData() {
 			image.src = "images/broken-moon.jpg"; // Replace with the actual image URL
 			image.alt = "Broken Moon";
 			element.appendChild(image);
+		} else if (nextMapData === "Storm Point") {
+			const image = document.createElement("img");
+			image.src = "images/stormpoint.png"; // Replace with the actual image URL
+			image.alt = "Storm Point";
+			element.appendChild(image);
 		}
-
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
@@ -139,7 +147,6 @@ async function updateNextMapData() {
 		// const element = document.getElementById("next-map");
 		// const nextHeaderElement = document.getElementById("next-map-header");
 		// nextHeaderElement.appendChild(para);
-
 		// // add image based on current map
 		// if (nextMapData === "Kings Canyon") {
 		// 	const image = document.createElement("img");

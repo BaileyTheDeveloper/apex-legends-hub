@@ -75,7 +75,8 @@ body {
 .map-header {
 	text-align: center;
 	margin-bottom: 5vh;
-	padding-top: 14vh;
+	padding-top: 12vh;
+	font-size: 26px;
 }
 
 #current-map-header {

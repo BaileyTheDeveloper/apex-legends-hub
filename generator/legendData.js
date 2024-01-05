@@ -36,6 +36,12 @@ const legendImages = [
 		altMobile: "Caustic Mobile",
 	},
 	{
+		src: "../images/conduit-full.png",
+		alt: "Conduit",
+		mobileSrc: "../images/legends-mobile/Portrait_Conduit_square.png",
+		altMobile: "Conduit Mobile",
+	},
+	{
 		src: "../images/crypto-full.png",
 		alt: "Crypto",
 		mobileSrc: "../images/legends-mobile/Portrait_Crypto_square.png",
