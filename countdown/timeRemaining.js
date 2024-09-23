@@ -30,6 +30,6 @@ async function updateEndTime(getChangeTime) {
 setTimeout(async () => {
 	await getChangeTime();
 	await updateEndTime(getChangeTime);
-}, 2500);
+}, 1050);
 
 export default updateEndTime;
