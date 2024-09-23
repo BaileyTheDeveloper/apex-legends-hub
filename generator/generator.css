@@ -1,4 +1,4 @@
-*{
+* {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
@@ -28,8 +28,12 @@ body {
 	color: #5e0000;
 }
 
+#generator-container {
+	height: 100vh;
+	padding-top: 12vh;
+}
 .legend-image {
-	width: 30vw;
+	width: 25vw;
 }
 
 #legend-list-name {
@@ -41,9 +45,11 @@ body {
 
 #legend-list-image {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
 footer {
 	text-align: center;
 }
+
+

@@ -5,9 +5,8 @@ async function getChangeTime() {
 		);
 		const changeTime = await response.json();
 		const endTime = changeTime.current.readableDate_end;
-		const endTimeFinal = endTime.slice(10, 16);
-		console.log(endTimeFinal);
-		return endTimeFinal;
+
+		// convert to local timezone somehow
 	} catch (error) {
 		console.log("Error fetching map data:", error);
 		throw error;
