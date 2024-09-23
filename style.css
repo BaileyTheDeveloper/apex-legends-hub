@@ -64,6 +64,34 @@ body {
 	justify-content: center;
 	margin-left: 43vw;
 }
+
+.map-nav-container {
+	height: auto;
+	display: flex;
+	position: fixed;
+	top: 0;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.map-nav {
+	display: flex;
+	justify-content: space-around;
+	width: 100vw;
+	width: 100vw;
+}
+
+.map-nav li {
+	list-style-type: none;
+}
+.map-nav a {
+	width: 15vw;
+	text-decoration: none;
+	font-size: 2rem;
+	font-weight: 400;
+	padding: 2rem;
+}
+
 #icon {
 	width: 1.5em;
 	height: 1.5em;
@@ -74,8 +102,8 @@ body {
 
 .map-header {
 	text-align: center;
-	margin-bottom: 5vh;
-	padding-top: 12vh;
+	margin-bottom: 2vh;
+	padding-top: 10vh;
 	font-size: 26px;
 }
 

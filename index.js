@@ -3,13 +3,14 @@
 async function getMapData() {
 	try {
 		const response = await fetch(
-			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
+			"https://api.mozambiquehe.re/maprotation?version=2&auth=787df377d2fa92a441b177f52b27f235"
 		);
 		const map = await response.json();
-		const mapData = map.current.map;
+		console.log(map);
+		const mapData = map.battle_royale.current.map;
 
 		// 1. Parse the UTC date string
-		const date = new Date(map.current.end * 1000);
+		const date = new Date(map.battle_royale.current.end * 1000);
 
 		// 2. Get the user's local timezone using 'userTZ'
 		const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -63,6 +64,11 @@ async function getMapData() {
 			image.src = "images/stormpoint.png"; // Replace with the actual image URL
 			image.alt = "Storm Point";
 			element.appendChild(image);
+		} else if (mapData === "E-District") {
+			const image = document.createElement("img");
+			image.src = "images/edistrict.png"; // Replace with the actual image URL
+			image.alt = "E-District";
+			element.appendChild(image);
 		}
 	} catch (error) {
 		console.log("Error fetching map data:", error);
@@ -73,13 +79,13 @@ getMapData();
 async function getNextMapData() {
 	try {
 		const response = await fetch(
-			"https://api.mozambiquehe.re/maprotation?auth=787df377d2fa92a441b177f52b27f235"
+			"https://api.mozambiquehe.re/maprotation?version=2&auth=787df377d2fa92a441b177f52b27f235"
 		);
 		const nextMap = await response.json();
-		const nextMapData = nextMap.next.map;
+		const nextMapData = nextMap.battle_royale.next.map;
 		console.log(nextMapData);
 		// 1. Parse the UTC date string
-		const date = new Date(nextMap.next.end * 1000);
+		const date = new Date(nextMap.battle_royale.next.end * 1000);
 		// 2. Get the user's local timezone using 'userTZ'
 		const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -130,6 +136,11 @@ async function getNextMapData() {
 			const image = document.createElement("img");
 			image.src = "images/stormpoint.png"; // Replace with the actual image URL
 			image.alt = "Storm Point";
+			element.appendChild(image);
+		} else if (nextMapData === "E-District") {
+			const image = document.createElement("img");
+			image.src = "images/edistrict.png"; // Replace with the actual image URL
+			image.alt = "E-District";
 			element.appendChild(image);
 		}
 	} catch (error) {
